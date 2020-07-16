@@ -29,6 +29,10 @@ char *vtiden = "\033[?6c";
 static float cwscale = 1.0;
 static float chscale = 1.0;
 
+/* Define fps* */
+static unsigned int xfps = 60;
+static unsigned int actionfps= 60;
+
 /*
  * word delimiter string
  *
