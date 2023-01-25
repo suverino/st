@@ -232,16 +232,16 @@ static Shortcut shortcuts[] = {
 	{ ControlMask,          XK_Print,       toggleprinter,  {.i =  0} },
 	{ ShiftMask,            XK_Print,       printscreen,    {.i =  0} },
 	{ XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0} },
-	{ TERMMOD,              XK_I,						zoom,           {.f = +1} },
-	{ TERMMOD,              XK_O,						zoom,           {.f = -1} },
-	{ TERMMOD,              XK_P,						zoomreset,      {.f =  0} },
+	{ TERMMOD,              XK_I,			zoom,           {.f = +1} },
+	{ TERMMOD,              XK_O,			zoom,           {.f = -1} },
+	{ TERMMOD,              XK_P,			zoomreset,      {.f =  0} },
 	{ TERMMOD,              XK_C,           clipcopy,       {.i =  0} },
 	{ TERMMOD,              XK_V,           clippaste,      {.i =  0} },
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
-	{ TERMMOD,							XK_K,						kscrollup,      {.i = -1} },
-	{ TERMMOD,							XK_J,						kscrolldown,    {.i = -1} },
+	{ TERMMOD,				XK_K,			kscrollup,      {.i = -1} },
+	{ TERMMOD,				XK_J,			kscrolldown,    {.i = -1} },
 };
 
 /*
