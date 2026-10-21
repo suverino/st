@@ -94,7 +94,7 @@ char *termname = "st-256color";
 unsigned int tabspaces = 8;
 
 /* background opacity */
-float alpha = 0.8;
+float alpha = 0.87f;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
@@ -228,6 +228,9 @@ static MouseShortcut mshortcuts[] = {
 
 static Shortcut shortcuts[] = {
 	/* mask                 keysym          function        argument */
+	{ Mod1Mask|ShiftMask,    XK_U,           changealpha,     {.f = +0.05f} },
+	{ Mod1Mask|ShiftMask,    XK_D,           changealpha,     {.f = -0.05f} },
+	{ Mod1Mask|ShiftMask,    XK_parenright,  changealpha,     {.f =  0} }, /* Shift+0 */
 	{ XK_ANY_MOD,           XK_Break,       sendbreak,      {.i =  0} },
 	{ ControlMask,          XK_Print,       toggleprinter,  {.i =  0} },
 	{ ShiftMask,            XK_Print,       printscreen,    {.i =  0} },

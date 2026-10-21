@@ -65,6 +65,7 @@ typedef struct {
 #define XK_SWITCH_MOD (1<<13)
 
 /* function definitions used in config.h */
+static void changealpha(const Arg *);
 static void clipcopy(const Arg *);
 static void clippaste(const Arg *);
 static void numlock(const Arg *);
@@ -818,6 +819,23 @@ xloadcols(void)
 	dc.col[defaultbg].pixel &= 0x00FFFFFF;
 	dc.col[defaultbg].pixel |= (unsigned char)(0xff * alpha) << 24;
 	loaded = 1;
+}
+
+static void
+changealpha(const Arg *arg)
+{
+	static float initialalpha = -1.0f;
+
+	if (initialalpha < 0)
+		initialalpha = alpha;
+	alpha = arg->f ? alpha + arg->f : initialalpha;
+	LIMIT(alpha, 0.0f, 1.0f);
+	dc.col[defaultbg].color.alpha = (unsigned short)(0xffff * alpha);
+	dc.col[defaultbg].pixel = (dc.col[defaultbg].pixel & 0x00ffffff)
+		| (unsigned long)(0xff * alpha) << 24;
+	XSetWindowBackground(xw.dpy, xw.win, dc.col[defaultbg].pixel);
+	xclear(0, 0, win.w, win.h);
+	redraw();
 }
 
 int
